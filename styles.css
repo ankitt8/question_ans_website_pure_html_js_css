@@ -13,7 +13,7 @@ label {
     display:block;
     margin:10px;
     padding:5px;
-    border:1px solid lavenderblush;
+    border: 2px solid lavenderblush;
     border-radius:5px;
 }
 #score {
@@ -36,4 +36,18 @@ input[type=submit]{
     margin:10px;
     color: white;
 }
-input[type=submit]
+.green {
+    background-color: 	#7CFC00;
+}
+.red {
+    background-color: #EF2828;
+}
+.error { 
+    color: red;
+}
+.title{
+    text-align: center;
+}
+.qnTitle {
+    font-weight: bold;
+}
