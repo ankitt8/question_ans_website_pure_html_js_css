@@ -3,7 +3,7 @@ var submittedAns = {}
 // var maxTimeInMinutes = 0;
 var totalQuestions = 0;
 function displayQuestions(testId = 'physics_12-08-2020.json') {
-    fetch('./data/question_bank/'+testId)
+    fetch('./data/question_bank/' + testId)
         .then(res => res.json())
         .then(res => {
             maxTimeInMinutes = parseInt(res['timerInMinutes'])
@@ -44,7 +44,7 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
             inputSubmitElem.setAttribute('value', 'Submit');
             inputSubmitContainerFrag.appendChild(inputSubmitElem);
 
-            
+
             inputSubmitContainer.appendChild(inputSubmitContainerFrag);
             fragment.appendChild(inputSubmitContainer)
 
@@ -94,7 +94,7 @@ function calculateScore(e) {
             }
         }
     })
-    document.getElementsByClassName('score')[0].innerText = `Score ${score}/${totalQuestions}`;
+    document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
 }
 document.getElementById('qn_ans_form').onsubmit = calculateScore;
 //  => {
@@ -165,7 +165,7 @@ function createTimer(maxTimeInMinutes, formElement) {
                 clearInterval(timerId);
                 // console.log(formElement)
                 formElement.requestSubmit();
-                
+
                 return;
             }
         }
@@ -175,7 +175,7 @@ function createTimer(maxTimeInMinutes, formElement) {
         counterPEle.innerHTML = `${hoursRemainingDisplay} : ${minutesRemainingDisplay} : ${secondsRemainingDisplay}`;
 
 
-    },1000)
+    }, 1000)
     // setTimeout(() => {clearInterval(timerId)}, maxTimeInMinutes*60*1000);
 }
 
