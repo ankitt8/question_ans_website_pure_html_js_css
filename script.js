@@ -27,13 +27,7 @@ function displayQuestions(testId = 'physics_12-08-2020') {
                 for (const option of Object.keys(res[i]['options'])) {
 
                     const label = document.createElement('label');
-                    const inputTag = document.createElement('input');
-                    label.innerHTML = res[i]['options'][option];
-                    inputTag.setAttribute("type", "radio");
-                    inputTag.setAttribute("name", res[i]['qn_num']);
-                    inputTag.setAttribute("value", option);
-
-                    label.appendChild(inputTag);
+                    label.innerHTML = `<input type="radio" name=${res[i]['qn_num']} value=${option}> ${res[i]['options'][option]}`
                     labelsFragment.appendChild(label);
 
                 }
