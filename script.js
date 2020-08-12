@@ -58,7 +58,7 @@ document.getElementById('qn_ans_form').onclick = (e) => {
     submittedAns[e.target.name] = e.target.value;
 }
 function calculateScore(e) {
-    console.log(e)
+    // console.log(e)
     clearInterval(timerId)
     e.preventDefault();
     // to get the answers selected
@@ -159,9 +159,9 @@ function createTimer(maxTimeInMinutes, formElement) {
                 minutesRemaining = 59;
             } else if (minutesRemaining < 0 && hoursRemaining <= 0) {
                 // timer has ended
-                console.log('Timer Ended');
+                // console.log('Timer Ended');
                 clearInterval(timerId);
-                console.log(formElement)
+                // console.log(formElement)
                 formElement.requestSubmit();
                 
                 return;
