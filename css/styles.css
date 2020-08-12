@@ -1,51 +1,23 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    color: #233246;
-    letter-spacing: 0.05em;
-    word-spacing: 0.1em;
-}
-
-h1 {
-    font-size: 24px;
-}
-
-h2 {
-    font-size: 20px;
-    line-height: 1.5em;
-}
-
-p {
-    font-size: 16px;
-    padding-bottom: 10px;
-    line-height: 1.5em;
-}
-
-body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
+@import 'utilities.css';
 .timer {
     position: sticky;
     top: 0px;
-    padding: 10px 0px;
-    background: white;
+    padding: 10px 30px;
+    background: var(--pure);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-content: center;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #counter {
-    color: #313131;
-    background: rgb(0, 225, 255);
+    color: var(--darkText);
+    background: var(--btnprimary);
     border-radius: 8px;
     width: fit-content;
     text-align: center;
     font-size: 25px;
-    padding: 0px 20px;
+    padding: 5px 20px;
     font-weight: bold;
 }
 
@@ -54,27 +26,22 @@ body {
     margin: 50px auto;
 }
 
-.highlight {
-    color: #ffa500;
-}
-
 .card {
     width: 90%;
-    border: 1px solid #b3b3b3;
+    border: 1px solid var(--darkborder);
     border-radius: 10px;
     padding: 20px;
     margin: 50px auto 0;
 }
-
-.card p {
-    font-size: 18px;
+.card h2{
+    margin-bottom: 20px;
 }
 
 label {
     display: block;
     margin: 10px;
     padding: 8px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--lightborder);
     border-radius: 5px;
 }
 
@@ -85,7 +52,6 @@ input[type="radio"] {
 #score {
     line-height: 2;
     font-weight: bold;
-    font-size: 20px;
 }
 
 .submit-container {
@@ -96,42 +62,44 @@ input[type=submit] {
     font-size: 25px;
     border: none;
     text-decoration: none;
-    background-color: #4CAF50;
+    background: var(--btnSecondary);
     border-radius: 5px;
     padding: 10px 20px;
     margin: 10px;
-    color: white;
+    cursor: pointer;
+    color: var(--pure);
 }
 
-.green {
-    background-color: #7CFC00;
-}
-
-.red {
-    background-color: #EF2828;
-}
-
-.error {
-    color: red;
-}
-
-.qnTitle {
-    font-weight: 600;
+input[type=submit]:hover {
+    box-shadow: 2px 2px 2px #077a0b;
 }
 
 @media (max-width: 767px) {
+    .timer {
+        padding: 15px;
+    }
     #counter {
-        margin: 15px auto;
+        padding: 5px 10px;
+        margin: 0;
     }
     .title {
         margin: 30px auto 0;
     }
+    .title h2 {
+        font-size: 20px;
+        line-height: 1.2em;
+        margin-bottom: 10px;
+    }
     .card {
         width: 100%;
         border: none;
-        border-bottom: 1px solid #b3b3b3;
+        border-bottom: 1px solid var(--darkborder);
         border-radius: 0;
         padding: 30px 20px;
         margin: 0;
     }
+    .card h2{
+        font-size: 18px;
+    }
+
 }
