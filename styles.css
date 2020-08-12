@@ -72,7 +72,7 @@ input[type=submit]{
 }
 #counter {
     /* position: absolute; */
-    background: blue;
+    background: yellow;
    
     border-radius: 5px;
     height: 40px;
