@@ -42,10 +42,7 @@ function displayQuestions(testId = 'physics_12-08-2020') {
             inputSubmitElem.setAttribute('value', 'Submit');
             inputSubmitContainerFrag.appendChild(inputSubmitElem);
 
-            // const pScoreEle = document.createElement('p');
-            // pScoreEle.setAttribute('id', 'score');
-            // pScoreEle.setAttribute('style', 'display:inline;')
-            // inputSubmitContainerFrag.appendChild(pScoreEle)
+            
             inputSubmitContainer.appendChild(inputSubmitContainerFrag);
             fragment.appendChild(inputSubmitContainer)
 
@@ -176,7 +173,7 @@ function createTimer(maxTimeInMinutes, formElement) {
         counterPEle.innerHTML = `${hoursRemainingDisplay} : ${minutesRemainingDisplay} : ${secondsRemainingDisplay}`;
 
 
-    },10)
+    },1000)
     // setTimeout(() => {clearInterval(timerId)}, maxTimeInMinutes*60*1000);
 }
 
