@@ -61,6 +61,7 @@ document.getElementById('qn_ans_form').onclick = (e) => {
     submittedAns[e.target.name] = e.target.value;
 }
 function calculateScore(e) {
+    console.log(e)
     clearInterval(timerId)
     e.preventDefault();
     // to get the answers selected
@@ -164,7 +165,7 @@ function createTimer(maxTimeInMinutes, formElement) {
                 console.log('Timer Ended');
                 clearInterval(timerId);
                 console.log(formElement)
-                // formElement.submit();
+                formElement.requestSubmit();
                 
                 return;
             }
@@ -175,7 +176,7 @@ function createTimer(maxTimeInMinutes, formElement) {
         counterPEle.innerHTML = `${hoursRemainingDisplay} : ${minutesRemainingDisplay} : ${secondsRemainingDisplay}`;
 
 
-    }, 1000)
+    },10)
     // setTimeout(() => {clearInterval(timerId)}, maxTimeInMinutes*60*1000);
 }
 
