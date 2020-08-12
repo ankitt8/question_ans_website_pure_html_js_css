@@ -2,8 +2,8 @@ var ansKey = {}
 var submittedAns = {}
 // var maxTimeInMinutes = 0;
 var totalQuestions = 0;
-function displayQuestions(testId = 'physics_12-08-2020') {
-    fetch('./data/question_bank/civil_mains_paper2_2020-08-12.json')
+function displayQuestions(testId = 'physics_12-08-2020.json') {
+    fetch('./data/question_bank/'+testId)
         .then(res => res.json())
         .then(res => {
             maxTimeInMinutes = parseInt(res['timerInMinutes'])
@@ -52,7 +52,7 @@ function displayQuestions(testId = 'physics_12-08-2020') {
             createTimer(maxTimeInMinutes, formElement);
         });
 }
-displayQuestions(testId = 'physics_12-08-2020');
+displayQuestions(testId = 'physics_12-08-2020.json');
 
 
 // store the ansewers clicked during the test
