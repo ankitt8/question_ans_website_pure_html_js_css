@@ -1,87 +1,137 @@
 * {
     margin: 0px;
-    padding:0px;
+    padding: 0px;
     box-sizing: border-box;
-    border:none;
+    border: none;
     outline: none;
-
+    color: #233246;
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
 }
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+    line-height: 1.5em;
+}
+
+p {
+    font-size: 16px;
+    padding-bottom: 10px;
+    line-height: 1.5em;
+}
+
 body {
-    font-size:16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
+.timer {
+    position: sticky;
+    top: 0px;
+    padding: 10px 0px;
+    background: white;
+    display: flex;
+    justify-content: center;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#counter {
+    color: #313131;
+    background: rgb(0, 225, 255);
+    border-radius: 8px;
+    width: fit-content;
+    text-align: center;
+    font-size: 25px;
+    padding: 0px 20px;
+    font-weight: bold;
+}
+
+.title {
+    text-align: center;
+    margin: 50px auto;
+}
+
+.highlight {
+    color: #ffa500;
+}
+
 .card {
-    border: 1px solid black;
+    width: 90%;
+    border: 1px solid #b3b3b3;
     border-radius: 10px;
-    /* background-color: aliceblue; */
-    padding:10px;
-    margin:15px;
-    
+    padding: 20px;
+    margin: 50px auto 0;
 }
+
+.card p {
+    font-size: 18px;
+}
+
 label {
-    display:block;
-    margin:10px;
-    padding:5px;
-    border: 2px solid lavenderblush;
-    border-radius:5px;
+    display: block;
+    margin: 10px;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
 }
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
 #score {
     line-height: 2;
     font-weight: bold;
-    font-size:20px;
+    font-size: 20px;
 }
 
 .submit-container {
     text-align: center;
 }
 
-input[type=submit]{ 
-    font-size: 30px;
+input[type=submit] {
+    font-size: 25px;
     border: none;
     text-decoration: none;
-    background-color:  #4CAF50;
+    background-color: #4CAF50;
     border-radius: 5px;
-    padding:15px;
-    margin:10px;
+    padding: 10px 20px;
+    margin: 10px;
     color: white;
 }
+
 .green {
-    background-color: 	#7CFC00;
+    background-color: #7CFC00;
 }
+
 .red {
     background-color: #EF2828;
 }
-.error { 
+
+.error {
     color: red;
 }
-.title{
-    text-align: center;
-    padding:10px;
-    margin: 10px;
-}
+
 .qnTitle {
-    font-weight: bold;
+    font-weight: 600;
 }
-.timer {
-    /* position: relative; */
-    position: sticky;
-    top:0px;
-    padding: 10px 0px;
-    background: white;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-#counter {
-    /* position: absolute; */
-    background: yellow;
-   
-    border-radius: 5px;
-    height: 40px;
-    text-align: center;
-    font-size: 30px;
-    padding: 5px;
-    margin: 5% 20%;
-    padding-bottom: 0px;
-    font-weight: bold;
-    color: black;
-    
+
+@media (max-width: 767px) {
+    #counter {
+        margin: 15px auto;
+    }
+    .title {
+        margin: 30px auto 0;
+    }
+    .card {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #b3b3b3;
+        border-radius: 0;
+        padding: 30px 20px;
+        margin: 0;
+    }
 }
