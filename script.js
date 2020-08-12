@@ -52,7 +52,7 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
             createTimer(maxTimeInMinutes, formElement);
         });
 }
-displayQuestions(testId = 'physics_12-08-2020.json');
+displayQuestions(testId = 'civil_mains_paper2_2020-08-12.json');
 
 
 // store the ansewers clicked during the test
