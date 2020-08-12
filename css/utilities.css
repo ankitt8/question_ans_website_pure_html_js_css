@@ -1,0 +1,60 @@
+:root {
+    --btnprimary: rgb(0, 225, 255);
+    --btnSecondary: #4CAF50;
+    --primaryText: #233246;
+    --darkText: #313131;
+    --darkborder: #b3b3b3;
+    --lightborder: #e0e0e0;
+    --pure: #fff;
+    --highlighter: #ffa500;
+    --correct: #7CFC00;
+    --error: #ee3131;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    color: var(--darkText);
+    letter-spacing: 0.05em;
+    word-spacing: 0.1em;
+    line-height: 1.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h1{
+    font-size: 24px;
+}
+
+h2{
+    font-size: 20px;
+}
+
+p {
+    font-size: 18px;
+}
+
+.highlight {
+    color: var(--highlighter);
+}
+
+.score {
+    color: var(--btnprimary);
+}
+
+.green {
+    background: var(--correct);
+}
+
+.red, .error {
+    background-color: var(--error);
+}
+
+@media (max-width: 767px) {
+h1{
+    font-size: 21px;
+}
+}
+

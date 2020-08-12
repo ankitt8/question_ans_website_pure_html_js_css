@@ -16,11 +16,11 @@ function displayQuestions(testId = 'physics_12-08-2020') {
                 // const cardDivFragment = document.createDocumentFragment();
                 const cardDiv = document.createElement('div');
                 cardDiv.classList.add('card');
-                const qnTitlePTag = document.createElement('p');
-                qnTitlePTag.classList.add('qnTitle');
-                qnTitlePTag.innerHTML = `<strong>Q${qnAnswer['qn_num']})</strong> ${qnAnswer['qn_title']}`;
+                const qnTitleTag = document.createElement('h2');
+                qnTitleTag.classList.add('qnTitle');
+                qnTitleTag.innerHTML = `<strong>Q${qnAnswer['qn_num']})</strong> ${qnAnswer['qn_title']}`;
                 // cardDivFragment.appendChild(cardDiv);
-                cardDiv.appendChild(qnTitlePTag);
+                cardDiv.appendChild(qnTitleTag);
 
                 const labelsFragment = document.createDocumentFragment();
                 for (const option of Object.keys(qnAnswer['options'])) {
