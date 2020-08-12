@@ -1,12 +1,55 @@
+function displayQuestions(testId = 'physics_12-08-2020') {
+
+
+    // fetch the json for particular testId
+    fetch('./data/question_bank/physics_12-08-2020.json')
+        .then(res => res.json())
+        .then(res => {
+            const formElement = document.getElementById('qn_ans_form');
+            const fragment = document.createDocumentFragment();
+            for (let i = 0; i < res.length; ++i) {
+                // const cardDivFragment = document.createDocumentFragment();
+                const cardDiv = document.createElement('div');
+                cardDiv.classList.add('card');
+                const qnTitlePTag = document.createElement('p');
+                qnTitlePTag.classList.add('qnTitle');
+                qnTitlePTag.innerHTML = `<strong>Q${res[i]['qn_num']})</strong> ${res[i]['qn_title']}`;
+
+                // cardDivFragment.appendChild(cardDiv);
+                cardDiv.appendChild(qnTitlePTag);
+
+                const labelsFragment = document.createDocumentFragment();
+                for (const option of Object.keys(res[i]['options'])) {
+
+                    const label = document.createElement('label');
+                    const inputTag = document.createElement('input');
+                    label.innerHTML = res[i]['options'][option];
+                    inputTag.setAttribute("type", "radio");
+                    inputTag.setAttribute("name", res[i]['qn_num']);
+                    inputTag.setAttribute("value", option);
+
+                    label.appendChild(inputTag);
+                    labelsFragment.appendChild(label);
+
+                }
+                cardDiv.appendChild(labelsFragment);
+                fragment.appendChild(cardDiv);
+            }
+            formElement.appendChild(fragment);
+
+        });
+
+}
+displayQuestions(testId = 'physics_12-08-2020');
 
 var ansKey = {
     q1: 'c',
-    q2: 'b',
-    q3: 'd',
+    q2: 'd',
+    q3: 'a',
     q4: 'c',
     q5: 'a',
-    q6: 'c',
-    q7: 'b'
+    q6: 'd',
+    q7: 'd'
 }
 var submittedAns = {}
 document.getElementById('qn_ans_form').onclick = (e) => {
@@ -35,11 +78,15 @@ document.getElementById('qn_ans_form').onsubmit = (e) => {
         } else {
             for (let i = 0; i < allInputElements.length; ++i) {
                 const inputEle = allInputElements[i];
-                if (inputEle.name == key) {
-                    if (inputEle.value == submittedAns[key]) {
+                if (inputEle.name == qn) {
+                    if (inputEle.value == submittedAns[qn]) {
                         console.log(inputEle)
                         console.log(inputEle.parentElement)
                         inputEle.parentElement.classList.add('red')
+                    } else {
+                        if (inputEle.value == ansKey[qn]) {
+                            inputEle.parentElement.classList.add('green')
+                        }
                     }
                 }
             }
@@ -47,4 +94,16 @@ document.getElementById('qn_ans_form').onsubmit = (e) => {
     })
     document.getElementById('score').innerHTML = `Your Score is: ${score}/7`;
     console.log(score)
+}
+
+// returns array of objects 
+function getQuestionsAndAnswers() {
+    return [
+        {
+
+        },
+        {},
+        {}
+    ]
+
 }
