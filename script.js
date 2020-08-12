@@ -1,13 +1,15 @@
 var ansKey = {}
 var submittedAns = {}
 // var maxTimeInMinutes = 0;
+var totalQuestions = 0;
 function displayQuestions(testId = 'physics_12-08-2020') {
-    fetch('./data/question_bank/physics_12-08-2020.json')
+    fetch('./data/question_bank/civil_mains_paper2_2020-08-12.json')
         .then(res => res.json())
         .then(res => {
             maxTimeInMinutes = parseInt(res['timerInMinutes'])
             const qnAnswers = res['questions_and_answerkey'];
-
+            totalQuestions = qnAnswers.length;
+            document.getElementsByClassName('highlight')[0].innerText = `${res['title']} `;
             const formElement = document.getElementById('qn_ans_form');
             const fragment = document.createDocumentFragment();
             for (const qnAnswer of qnAnswers) {
@@ -92,7 +94,7 @@ function calculateScore(e) {
             }
         }
     })
-    document.getElementById('score').innerHTML = `Your Score is: ${score}/7`;
+    document.getElementsByClassName('score')[0].innerText = `Score ${score}/${totalQuestions}`;
 }
 document.getElementById('qn_ans_form').onsubmit = calculateScore;
 //  => {
