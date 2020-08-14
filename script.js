@@ -16,6 +16,14 @@ var score;
 // })
 // // const data  = .then((data) => data);
 // console.log(data)
+// if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
+//     __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {};
+// }
+// const testId = 'physics_12-08-2020.json'
+// fetch('./data/question_bank/' + testId)
+//     .then(res => res.json())
+//     .then(res => data = res)
+// console.log(data)
 document.querySelector('#submitTestModalId').style.display = 'none';
 
 function showQuestions() {
@@ -61,7 +69,7 @@ function showQuestions() {
 
     formElement.addEventListener('click', (e) => {
         if (e.target.value != 'Submit') {
-            submittedAns[e.targeti.name] = e.target.value;
+            submittedAns[e.target.name] = e.target.value;
 
         }
     })
@@ -73,7 +81,7 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
             maxTimeInMinutes = parseInt(res['timerInMinutes'])
             qnAnswers = res['questions_and_answerkey'];
             totalQuestions = qnAnswers.length;
-
+            data = res;
             createStartTestModal();
             document.getElementsByClassName('highlight')[0].innerText = `${res['title']} `;
 
@@ -87,11 +95,6 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
                 formElement.onsubmit = handleFormSubmit;
 
             })
-
-
-
-
-
         });
 }
 
@@ -105,8 +108,6 @@ function handleFormSubmit() {
     unattemptedQns = 0;
     score = calculateScore();
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
-
-    // createSubmitTestModal();
 }
 function createSubmitTestModal() {
     console.log('inside createSubmitTestModal')
@@ -118,15 +119,8 @@ function createSubmitTestModal() {
         document.querySelector('#submitTestModalId').style.display = 'none';
     })
 
-    // disable all input 
-    // document.querySelectorAll('input').forEach(ele => {ele.disabled = true;})
-    // document.querySelector('#wrongAns').innerText = 
 }
-// window.onload = function () {
 
-//     createStartTestModal();
-
-// }
 
 // store the ansewers clicked during the test
 function calculateScore(e) {
@@ -213,4 +207,5 @@ function createTimer(maxTimeInMinutes, formElement) {
 }
 
 displayQuestions(testId = 'physics_12-08-2020.json');
+
 
