@@ -21,21 +21,44 @@
         
     </div> -->
     <form id='qn_ans_form'></form>
-    <div id="modalId" class="modal">
+    <div id="startTestModalId" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div class="close">&times;</div>
+                <div class="close" id="startTestModalClose">&times;</div>
                 <h1><span class="highlight"> </span>Test&nbsp;Series</h1>
                 <p>By : Ankit Tiwari</p>
             </div>
             <div class="modal-body">
-                <h1>Test Consists : <span class="highlight" id="numOfQns"></span></h1>
-                <p>Total Duration : <span class="highlight" id="duration"></span></p>
-                <button class="btn startTestBtn" >Start Test</button>
+                <!-- <h1>Test Consists :-<span class="highlight" id="numOfQns"></span></h1>
+                <p>Total Duration :-<span class="highlight" id="duration"></span></p> -->
+                <button class="btn startTestBtn" id='startTestBtn'>Start Test</button>
             </div>
-            
+
             <div class="modal-footer">
                 <h1>!! Best Of Luck !!</h1>
+            </div>
+        </div>
+    </div>
+    <div id="submitTestModalId" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" id="submitTestModalClose">&times;</span>
+                <h1><span class="highlight"> </span>Test&nbsp;Series</h1>
+                <p>By : Ankit Tiwari</p>
+            </div>
+            <div class="modal-body">
+                <h1 id="score">
+
+                </h1>
+                <!-- <p> Total Questions:- <span class="highlight" id="numOfQns"></span></p>
+                <p>Correct Answers:- <span class="highlight" id="correctAns"></span></p>
+                <p>Wrong Answers:- <span class="highlight" id="wrongAns"></span></p>
+                <p>UnAttempted Questions:- <span class="highlight" id="unattemptedQns"></span></p> -->
+                <!-- <button id="startTestBtn">Start Test</button> -->
+            </div>
+
+            <div class="modal-footer">
+                <h1>!! Thanks !!</h1>
             </div>
         </div>
     </div>

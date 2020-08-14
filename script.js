@@ -3,7 +3,18 @@ var submittedAns = {}
 var maxTimeInMinutes = 0;
 var totalQuestions = 0;
 var data;
-
+var score;
+// async function getQuestionBank(testId = 'physics_12-08-2020.json') {
+//     let response  = await fetch('./data/question_bank/' + testId);
+//     let data = await response.json();
+//     return data;
+// }
+// const promise = getQuestionBank(testId = 'physics_12-08-2020.json')
+// promise.then(result => {
+//     data = result;
+// })
+// // const data  = .then((data) => data);
+// console.log(data)
 function displayQuestions(testId = 'physics_12-08-2020.json') {
     fetch('./data/question_bank/' + testId)
         .then(res => res.json())
@@ -44,6 +55,7 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
             const inputSubmitElem = document.createElement('input')
             inputSubmitElem.setAttribute('type', 'submit');
             inputSubmitElem.setAttribute('value', 'Submit');
+            inputSubmitElem.addEventListener('click', createSubmitTestModal);
             inputSubmitContainerFrag.appendChild(inputSubmitElem);
 
 
@@ -54,19 +66,32 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
             createTimer(maxTimeInMinutes, formElement);
         });
 }
-displayQuestions(testId = 'civil_mains_paper2_2020-08-12.json');
-function createModal() {
-    document.querySelector('#numOfQns').innerText = Object.keys(ansKey).length;
-    document.querySelector('#duration').innerText = maxTimeInMinutes;
+
+function createStartTestModal() {
+    document.querySelector('#startTestModalId').style.display = 'block';
+    // document.querySelector('#numOfQns').innerText = Object.keys(ansKey).length;
+    // document.querySelector('#duration').innerText = maxTimeInMinutes;
+    document.querySelector('#startTestModalClose').addEventListener('click', () => {
+        document.querySelector('#startTestModalId').style.display = 'none';
+    })
+
+}
+function createSubmitTestModal() {
+    console.log('inside createSubmitTestModal')
+    document.querySelector('#submitTestModalId').style.display = 'block';
+    // document.querySelector('#correctAns').innerText = score;
+    document.querySelector('#submitTestModalClose').addEventListener('click', () => {
+        document.querySelector('#submitTestModalId').style.display = 'none';
+    })
+    // document.querySelector('#wrongAns').innerText = 
 }
 window.onload = function () {
-    console.log('inside onload funciton')
-    createModal();
-
-    document.querySelector('#modalId').style.display = 'block';
+    document.querySelector('#submitTestModalId').style.display = 'none';
+    createStartTestModal();
 }
-document.getElementsByClassName('startTestBtn').onclick = () => {
-    document.getElementById('modalId').style.display = 'none';
+document.querySelector('#startTestBtn').onclick = () => {
+    document.querySelector('#startTestModalId').style.display = 'none';
+    displayQuestions(testId = 'physics_12-08-2020.json');
 }
 
 // store the ansewers clicked during the test
@@ -79,7 +104,7 @@ function calculateScore(e) {
     e.preventDefault();
     // to get the answers selected
 
-    let score = 0;
+    score = 0;
     let allInputElements = document.getElementsByTagName('input');
     Object.keys(ansKey).forEach(qn => {
         if (submittedAns[qn] == ansKey[qn]) {
@@ -111,43 +136,6 @@ function calculateScore(e) {
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
 }
 document.getElementById('qn_ans_form').onsubmit = calculateScore;
-//  => {
-//     e.preventDefault();
-//     // to get the answers selected
-
-//     let score = 0;
-//     let allInputElements = document.getElementsByTagName('input');
-//     Object.keys(ansKey).forEach(qn => {
-//         if (submittedAns[qn] == ansKey[qn]) {
-//             for (let i = 0; i < allInputElements.length; ++i) {
-//                 const inputEle = allInputElements[i];
-//                 if (inputEle.name == qn) {
-//                     if (inputEle.value == submittedAns[qn]) {
-//                         inputEle.parentElement.classList.add('green')
-//                     }
-//                 }
-//             }
-
-//             score += 1;
-//         } else {
-//             for (let i = 0; i < allInputElements.length; ++i) {
-//                 const inputEle = allInputElements[i];
-//                 if (inputEle.name == qn) {
-//                     if (inputEle.value == submittedAns[qn]) {
-//                         inputEle.parentElement.classList.add('red')
-//                     } else {
-//                         if (inputEle.value == ansKey[qn]) {
-//                             inputEle.parentElement.classList.add('green')
-//                         }
-//                     }
-//                 }
-//             }
-//         }
-//     })
-//     document.getElementById('score').innerHTML = `Your Score is: ${score}/7`;
-// }
-
-// to display a timer
 
 function createTimer(maxTimeInMinutes, formElement) {
     maxTimeInMinutes = parseInt(maxTimeInMinutes)
@@ -192,7 +180,6 @@ function createTimer(maxTimeInMinutes, formElement) {
     }, 1000)
     // setTimeout(() => {clearInterval(timerId)}, maxTimeInMinutes*60*1000);
 }
-
 
 
 
