@@ -3,7 +3,7 @@ var submittedAns = {}
 var maxTimeInMinutes = 0;
 var totalQuestions = 0;
 var data;
-function 
+
 function displayQuestions(testId = 'physics_12-08-2020.json') {
     fetch('./data/question_bank/' + testId)
         .then(res => res.json())

@@ -1,0 +1,61 @@
+{
+    "questions_and_answerkey": [
+        {
+            "qn_num": 1,
+            "qn_title": "When the height of the signal is not the same as that of height of instrument then the correciton applied for the measurement is known as",
+            "options": {
+                "a": "Curvature Correction",
+                "b": "Combined Correction",
+                "c": "Axis Signal Correction",
+                "d": "Refraction Correction"
+            },
+            "answer": "c"
+        },
+        {
+            "qn_num": 2,
+            "qn_title": " Find the correction of refraction for the distance of 1200m",
+            "options": {
+                "a": "0.0106 m",
+                "b": "0.0160 m",
+                "c": "0.0016 m",
+                "d": "0.0116 m"
+            },
+            "answer": "b"
+        },
+        {
+            "qn_num": 3,
+            "qn_title": "Find the correction for curvature for a distance 2.48 km?",
+            "options": {
+                "a": "0.483 m",
+                "b": "0.434 m",
+                "c": " 0.443 m",
+                "d": " 0. 403 m"
+            },
+            "answer": "a"
+        },
+        {
+            "qn_num": 4,
+            "qn_title": "Find combined correction for curvature and refraction for 1.29 km ",
+            "options": {
+                "a": " 0.112 m",
+                "b": "0.128 m",
+                "c": "0.212m",
+                "d": "0.221 m"
+            },
+            "answer": "a"
+        },
+        {
+            "qn_num": 5,
+            "qn_title": "A light house is visible just above the horizon at a certain station at the sea level. The distance between the station and light house is 10 km. Find the height of the light house?",
+            "options": {
+                "a": " 0 6728 m",
+                "b": "0.06728 m",
+                "c": " 67.280 m",
+                "d": "6.728 m"
+            },
+            "answer": "d"
+        }
+    ],
+    "timerInMinutes": "10",
+    "title":"MPSC Civil Mains"
+}
