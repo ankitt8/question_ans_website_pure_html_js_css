@@ -11,133 +11,34 @@
 <body>
     <div class="timer">
         <h1 id="score">
-            
+
         </h1>
         <p id="counter">
 
         </p>
     </div>
-    <div class="title">
-        <h1><span class="highlight"> </span>Test&nbsp;Series</h1>
-        <p>By : Ankit Tiwari</p>
-    </div>
+    <!-- <div class="title">
+        
+    </div> -->
     <form id='qn_ans_form'></form>
-    <!-- <form id='qn_ans_form' action="">
-        <div class="card">
-            <p class="qnTitle"><strong>Q1) </strong>Name the structure of silicate in which two oxygen atoms of [SiO4]4- are shared.</p>
-            <label>
-                <input type="radio" name="q1" value="a">Pyrosilicate
-            </label>
-            <label>
-                <input type="radio" name="q1" value="b">Sheet silicate
-            </label>
-            <label>
-                <input type="radio" name="q1" value="c"> Linear chain silicate
-            </label>
-            <label>
-                <input type="radio" name="q1" value="d">Three dimensional silicate
-            </label>
-
+    <div id="modalId" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h1><span class="highlight"> </span>Test&nbsp;Series</h1>
+                <p>By : Ankit Tiwari</p>
+            </div>
+            <div class="modal-body">
+                <h1>Test Consists :-<span class="highlight" id="numOfQns"></span></h1>
+                <p>Total Duration :-<span class="highlight" id="duration"></span></p>
+                <button class="startTestBtn" >Start Test</button>
+            </div>
+            
+            <div class="modal-footer">
+                <h1>!! Best Of Luck !!</h1>
+            </div>
         </div>
-        
-        <div class="card">
-            <p class="qnTitle"><strong>Q2) </strong>Root mean square velocity of a gas is x ms-1 at a pressure p atm and temperature T K. If pressure is made 2p under isothermal condition root mean square speed becomes</p>
-            <label>
-                <input type="radio" name="q2" value="a">2x
-            </label>
-            <label>
-                <input type="radio" name="q2" value="b">4x
-            </label>
-            <label>
-                <input type="radio" name="q2" value="c">x/2
-            </label>
-            <label>
-                <input type="radio" name="q2" value="d">x
-            </label>
-        </div>
-        <div class="card">
-            <p class="qnTitle"><strong>Q3) </strong>Which one of the following is not a sulphide ore?</p>
-            <label>
-                <input type="radio" name="q3" value="a"> Magnetite
-            </label>
-            <label>
-                <input type="radio" name="q3" value="b">Iron pyrites
-            </label>
-            <label>
-                <input type="radio" name="q3" value="c"> Copper glance
-            </label>
-            <label>
-                <input type="radio" name="q3" value="d"> Sphalerite
-            </label>
-        </div>
-        <div class="card">
-            <p class="qnTitle"><strong>Q4) </strong>The impurities associated with mineral used in metallurgy are called collectively?</p>
-            <label>
-                <input type="radio" name="q4" value="a">Slag
-            </label>
-            <label>
-                <input type="radio" name="q4" value="b">Flux
-            </label>
-            <label>
-                <input type="radio" name="q4" value="c">Gangue
-            </label>
-            <label>
-                <input type="radio" name="q4" value="d">Ore
-            </label>
-        </div>
-        <div class="card">
-            <p class="qnTitle"><strong>Q5) </strong> Galena is an ore of
-            </p>
-            <label>
-                <input type="radio" name="q5" value="a">Pb
-            </label>
-            <label>
-                <input type="radio" name="q5" value="b">Hg
-            </label>
-            <label>
-                <input type="radio" name="q5" value="c">Zn
-            </label>
-            <label>
-                <input type="radio" name="q5" value="d">Cu
-            </label>
-        </div>
-        <div class="card">
-            <p class="qnTitle"><strong>Q6) </strong>The process of converting hydrated alumina into anhydrous alumina is called</p>
-            <label>
-                <input type="radio" name="q6" value="a"> roasting
-            </label>
-            <label>
-                <input type="radio" name="q6" value="b">smelting
-            </label>
-            <label>
-                <input type="radio" name="q6" value="c">dressing
-            </label>
-            <label>
-                <input type="radio" name="q6" value="d">calcination
-            </label>
-        </div>
-        <div class="card">
-            <p class="qnTitle"><strong>Q7) </strong>The most electropositive metals are isolated from their ores by</p>
-            <label>
-                <input type="radio" name="q7" value="a">high temperature reduction with carbon
-            </label>
-            <label>
-                <input type="radio" name="q7" value="b">self reduction
-            </label>
-            <label>
-                <input type="radio" name="q7" value="c"> thermal decomposition
-            </label>
-            <label>
-                <input type="radio" name="q7" value="d">electrolysis of fused ionic salts
-            </label>
-        </div>
-        <div class="submit-container">
-            <input type="submit" value="Submit">
-            <p style="display: inline;" id='score'></p>
-        </div>
-        
-    </form> -->
-
+    </div>
 </body>
 <script src="./script.js"></script>
 

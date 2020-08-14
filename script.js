@@ -1,7 +1,9 @@
 var ansKey = {}
 var submittedAns = {}
-// var maxTimeInMinutes = 0;
+var maxTimeInMinutes = 0;
 var totalQuestions = 0;
+var data;
+function 
 function displayQuestions(testId = 'physics_12-08-2020.json') {
     fetch('./data/question_bank/' + testId)
         .then(res => res.json())
@@ -53,7 +55,19 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
         });
 }
 displayQuestions(testId = 'civil_mains_paper2_2020-08-12.json');
+function createModal() {
+    document.querySelector('#numOfQns').innerText = Object.keys(ansKey).length;
+    document.querySelector('#duration').innerText = maxTimeInMinutes;
+}
+window.onload = function () {
+    console.log('inside onload funciton')
+    createModal();
 
+    document.querySelector('#modalId').style.display = 'block';
+}
+document.getElementsByClassName('startTestBtn').onclick = () => {
+    document.getElementById('modalId').style.display = 'none';
+}
 
 // store the ansewers clicked during the test
 document.getElementById('qn_ans_form').onclick = (e) => {
