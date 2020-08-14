@@ -1,4 +1,6 @@
 @import 'utilities.css';
+/*Timer*/
+
 .timer {
     position: sticky;
     top: 0px;
@@ -20,24 +22,62 @@
     padding: 5px 20px;
     font-weight: bold;
 }
+
+/*Modal Window*/
+
 .modal {
-    background-color: rgb(0,0,0);
-    display: block;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 80%;
+    height: fit-content;
+    border-radius: 5px;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
     z-index: 1;
-    border: 1px solid blue;
-    height: 50%;
-    position: fixed;
-    margin-top: 25%;
-    
 }
-.modal-header {
+.modal-content{
+    margin:80px auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     text-align: center;
-    margin: 50px auto;
 }
+.modal-header div.close{
+    position: absolute;
+    top:10px;
+    right:20px;
+    font-weight: bold;
+    font-size: 20px;
+    float: right;
+    color: var(--pure);
+}
+.modal-header h1, .modal-header p,.modal-body h1, .modal-body p{
+    color: var(--pure);
+    margin-bottom: 15px;
+}
+.modal-header p{
+    color: var(--darkborder);
+}
+.modal-body{
+    margin-top: 50px;
+}
+.modal-body h1, .modal-body p{
+    margin-bottom: 20px;
+}
+
+.startTestBtn{
+    margin:50px 0;
+    background: var(--btnprimary);
+}
+
+.modal-footer h1{
+    color:var(--correct);
+}
+
+/*Question Cards*/
 
 .card {
     width: 90%;
@@ -46,7 +86,8 @@
     padding: 20px;
     margin: 50px auto 0;
 }
-.card h2{
+
+.card h2 {
     margin-bottom: 20px;
 }
 
@@ -73,13 +114,8 @@ input[type="radio"] {
 
 input[type=submit] {
     font-size: 25px;
-    border: none;
-    text-decoration: none;
     background: var(--btnSecondary);
-    border-radius: 5px;
-    padding: 10px 20px;
     margin: 10px;
-    cursor: pointer;
     color: var(--pure);
 }
 
@@ -95,13 +131,8 @@ input[type=submit]:hover {
         padding: 5px 10px;
         margin: 0;
     }
-    .title {
-        margin: 30px auto 0;
-    }
-    .title h2 {
-        font-size: 20px;
-        line-height: 1.2em;
-        margin-bottom: 10px;
+    .modal {
+        width: 90%;
     }
     .card {
         width: 100%;
@@ -111,8 +142,7 @@ input[type=submit]:hover {
         padding: 30px 20px;
         margin: 0;
     }
-    .card h2{
+    .card h2 {
         font-size: 18px;
     }
-
 }
