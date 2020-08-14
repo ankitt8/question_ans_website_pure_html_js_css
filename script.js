@@ -53,6 +53,7 @@ function displayQuestions(testId = 'physics_12-08-2020.json') {
             const inputSubmitContainerFrag = document.createDocumentFragment();
 
             const inputSubmitElem = document.createElement('input')
+            inputSubmitElem.classList.add('btn')
             inputSubmitElem.setAttribute('type', 'submit');
             inputSubmitElem.setAttribute('value', 'Submit');
             inputSubmitElem.addEventListener('click', createSubmitTestModal);
@@ -71,8 +72,10 @@ function createStartTestModal() {
     document.querySelector('#startTestModalId').style.display = 'block';
     // document.querySelector('#numOfQns').innerText = Object.keys(ansKey).length;
     // document.querySelector('#duration').innerText = maxTimeInMinutes;
-    document.querySelector('#startTestModalClose').addEventListener('click', () => {
+    document.querySelector('#startTestBtn').addEventListener('click', () => {
         document.querySelector('#startTestModalId').style.display = 'none';
+        // document.querySelector('.timer').style.display = 'inline-block';
+        displayQuestions(testId = 'physics_12-08-2020.json');
     })
 
 }
@@ -82,16 +85,17 @@ function createSubmitTestModal() {
     // document.querySelector('#correctAns').innerText = score;
     document.querySelector('#submitTestModalClose').addEventListener('click', () => {
         document.querySelector('#submitTestModalId').style.display = 'none';
+       
     })
+    // disable all input 
+    // document.querySelectorAll('input').forEach(ele => {ele.disabled = true;})
     // document.querySelector('#wrongAns').innerText = 
 }
 window.onload = function () {
+
     document.querySelector('#submitTestModalId').style.display = 'none';
     createStartTestModal();
-}
-document.querySelector('#startTestBtn').onclick = () => {
-    document.querySelector('#startTestModalId').style.display = 'none';
-    displayQuestions(testId = 'physics_12-08-2020.json');
+
 }
 
 // store the ansewers clicked during the test
