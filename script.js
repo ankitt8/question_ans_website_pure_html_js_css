@@ -5,25 +5,19 @@ var totalQuestions = 0;
 var data;
 var score;
 // var qnAnswer
-// async function getQuestionBank(testId = 'physics_12-08-2020.json') {
-//     let response  = await fetch('./data/question_bank/' + testId);
-//     let data = await response.json();
-//     return data;
+async function getQuestionBank(testId = 'physics_12-08-2020.json') {
+    let response = await fetch('./data/question_bank/' + testId);
+    let data = await response.json();
+    return data;
+}
+// getQuestionBank.then(data => console.log(data))
+// async function fun() {
+
+//     console.log(data)
+
 // }
-// const promise = getQuestionBank(testId = 'physics_12-08-2020.json')
-// promise.then(result => {
-//     data = result;
-// })
-// // const data  = .then((data) => data);
-// console.log(data)
-// if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
-//     __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {};
-// }
-// const testId = 'physics_12-08-2020.json'
-// fetch('./data/question_bank/' + testId)
-//     .then(res => res.json())
-//     .then(res => data = res)
-// console.log(data)
+// fun();
+
 document.querySelector('#submitTestModalId').style.display = 'none';
 
 function showQuestions() {
@@ -74,28 +68,35 @@ function showQuestions() {
         }
     })
 }
-function displayQuestions(testId = 'physics_12-08-2020.json') {
-    fetch('./data/question_bank/' + testId)
-        .then(res => res.json())
-        .then(res => {
-            maxTimeInMinutes = parseInt(res['timerInMinutes'])
-            qnAnswers = res['questions_and_answerkey'];
-            totalQuestions = qnAnswers.length;
-            data = res;
-            createStartTestModal();
-            document.getElementsByClassName('highlight')[0].innerText = `${res['title']} `;
+function bindEvents() {
+    document.querySelector('#startTestBtn').addEventListener('click', () => {
+        document.querySelector('#startTestModalId').style.display = 'none';
+        // document.querySelector('.timer').style.display = 'inline-block';
+        showQuestions();
+        createTimer(maxTimeInMinutes, formElement);
+        formElement.onsubmit = handleFormSubmit;
 
-            formElement = document.getElementById('qn_ans_form');
-            fragment = document.createDocumentFragment();
-            document.querySelector('#startTestBtn').addEventListener('click', () => {
-                document.querySelector('#startTestModalId').style.display = 'none';
-                // document.querySelector('.timer').style.display = 'inline-block';
-                showQuestions();
-                createTimer(maxTimeInMinutes, formElement);
-                formElement.onsubmit = handleFormSubmit;
+    });
+    document.querySelector('#submitTestModalClose').addEventListener('click', () => {
+        document.querySelector('#submitTestModalId').style.display = 'none';
+    })
+}
+async function displayQuestions(testId = 'physics_12-08-2020.json') {
+    res = await getQuestionBank(testId = 'physics_12-08-2020.json')
+    console.log(res)
+    maxTimeInMinutes = parseInt(res['timerInMinutes'])
+    qnAnswers = res['questions_and_answerkey'];
+    totalQuestions = qnAnswers.length;
+    data = res;
+    createStartTestModal();
+    document.getElementsByClassName('highlight')[0].innerText = `${res['title']} `;
 
-            })
-        });
+    formElement = document.getElementById('qn_ans_form');
+    fragment = document.createDocumentFragment();
+    bindEvents();
+
+    
+    
 }
 
 function createStartTestModal() {
@@ -104,20 +105,22 @@ function createStartTestModal() {
     document.querySelector('#duration').innerText = maxTimeInMinutes;
 }
 
-function handleFormSubmit() {
+function handleFormSubmit(e) {
+   
+    e.preventDefault();
+
     unattemptedQns = 0;
     score = calculateScore();
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
+    createSubmitTestModal();
 }
 function createSubmitTestModal() {
-    console.log('inside createSubmitTestModal')
+   
     document.querySelector('#submitTestModalId').style.display = 'block';
     document.querySelector('#correctAns').innerText = score;
     document.querySelector('#wrongAns').innerText = totalQuestions - score - unattemptedQns;
     document.querySelector('#unattemptedQns').innerText = unattemptedQns;
-    document.querySelector('#submitTestModalClose').addEventListener('click', () => {
-        document.querySelector('#submitTestModalId').style.display = 'none';
-    })
+    
 
 }
 
@@ -126,7 +129,7 @@ function createSubmitTestModal() {
 function calculateScore(e) {
     // console.log(e)
     clearInterval(timerId)
-    // e.preventDefault();
+   
     // to get the answers selected
 
     score = 0;
