@@ -38,44 +38,66 @@
     overflow: auto;
     background-color: rgb(0, 0, 0);
     z-index: 1;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    transition: all 0.2s ;
 }
-.modal-content{
-    margin:80px auto;
+
+
+@keyframes animatetop {
+    from {
+        top: -150%;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}
+
+.modal-content {
+    margin: 80px auto;
     display: flex;
     flex-direction: column;
     align-content: center;
     text-align: center;
 }
-.modal-header div.close{
+
+.modal-header div.close {
     position: absolute;
-    top:10px;
-    right:20px;
+    top: 10px;
+    right: 20px;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     float: right;
+    cursor: pointer;
     color: var(--pure);
 }
-.modal-header h1, .modal-header p,.modal-body h1, .modal-body p{
+
+.modal-header h1, .modal-header p, .modal-body h1, .modal-body p {
     color: var(--pure);
     margin-bottom: 15px;
 }
-.modal-header p{
+
+.modal-header p {
     color: var(--darkborder);
 }
-.modal-body{
+
+.modal-body {
     margin-top: 50px;
 }
-.modal-body h1, .modal-body p{
+
+.modal-body h1, .modal-body p {
     margin-bottom: 20px;
 }
 
-.startTestBtn{
-    margin:50px 0;
+.startTestBtn {
+    margin: 50px 0;
     background: var(--btnprimary);
 }
 
-.modal-footer h1{
-    color:var(--correct);
+.modal-footer h1 {
+    color: var(--correct);
 }
 
 /*Question Cards*/
