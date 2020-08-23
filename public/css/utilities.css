@@ -68,3 +68,12 @@ h1{
 }
 }
 
+input[type=text] {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+}
+input[type=text]::placeholder {
+    text-align: center;
+}
+

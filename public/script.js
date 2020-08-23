@@ -184,30 +184,31 @@ function calculateScore() {
     let allInputElements = document.getElementsByTagName('input');
     Object.keys(ansKey).forEach(qn => {
         if (submittedAns[qn] == ansKey[qn]) {
-            for (let i = 0; i < allInputElements.length; ++i) {
-                const inputEle = allInputElements[i];
-
-                if (inputEle.name == qn) {
-                    if (inputEle.value == submittedAns[qn]) {
-                        inputEle.parentElement.classList.add('green')
-                    }
-                }
-            }
+            // adding green color to right answer
+            // for (let i = 0; i < allInputElements.length; ++i) {
+            //     const inputEle = allInputElements[i];
+            //     if (inputEle.name == qn) {
+            //         if (inputEle.value == submittedAns[qn]) {
+            //             inputEle.parentElement.classList.add('green')
+            //         }
+            //     }
+            // }
 
             score += 1;
         } else {
-            for (let i = 0; i < allInputElements.length; ++i) {
-                const inputEle = allInputElements[i];
-                if (inputEle.name == qn) {
-                    if (inputEle.value == submittedAns[qn]) {
-                        inputEle.parentElement.classList.add('red')
-                    } else {
-                        if (inputEle.value == ansKey[qn]) {
-                            inputEle.parentElement.classList.add('green')
-                        }
-                    }
-                }
-            }
+            // adding green and red color
+            // for (let i = 0; i < allInputElements.length; ++i) {
+            //     const inputEle = allInputElements[i];
+            //     if (inputEle.name == qn) {
+            //         if (inputEle.value == submittedAns[qn]) {
+            //             inputEle.parentElement.classList.add('red')
+            //         } else {
+            //             if (inputEle.value == ansKey[qn]) {
+            //                 inputEle.parentElement.classList.add('green')
+            //             }
+            //         }
+            //     }
+            // }
         }
     })
     return score;

@@ -154,3 +154,8 @@ input[type=submit]:hover {
         font-size: 18px;
     }
 }
+
+#errorMsg {
+    margin: 10px;
+    
+}
