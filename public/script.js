@@ -7,6 +7,10 @@ var score;
 var emailId;
 var title;
 var subtitle;
+var unattemptedQns;
+var wrongAnswers;
+var correctAns;
+
 // var qnAnswer
 document.querySelector('#submitTestModalId').style.display = 'none';
 
@@ -88,8 +92,12 @@ function validateEmail(emailId) {
 function bindEvents() {
 
     document.querySelector('#qn_ans_form').addEventListener('click', (e) => {
-        // console.log(e.target.parentElement.dataset)
-        e.target.parentElement.dataset.clicked = true;
+        const tagClicked = e.target.tagName;
+        if(tagClicked == 'INPUT') {
+            e.target.parentElement.parentElement.dataset.clicked = true;
+        } 
+        
+        
     })
 
     document.querySelector('#startTestBtn').addEventListener('click', () => {
@@ -116,7 +124,7 @@ function bindEvents() {
 function createStartTestModal() {
     // document.querySelector('#startTestModalTitle').innerText = `${res['title']} `
     document.querySelector('#startTestModalTitle').innerText = title;
-    
+
     document.querySelector('#submitTestModalTitle').innerText = `${res['title']} `
     document.querySelector('#startTestModalId').style.display = 'block';
     document.querySelector('#numOfQnsStartTestModal').innerText = totalQuestions;
@@ -127,10 +135,23 @@ function handleFormSubmit(e) {
 
     e.preventDefault();
     document.querySelector('#submitTestBtn').setAttribute('disabled', true)
-    unattemptedQns = 0;
-    score = calculateScore();
+    // var score, wrongAnswers, unattemptedQns, correctAns;
+    // ({score, wrongAnswers, unattemptedQns, correctAns} = calculateScore());
+    result = calculateScore();
+    score = result['score'];
+    wrongAnswers = result['wrongAnswers']
+    unattemptedQns = result['unattemptedQns']
+    correctAns = result['correctAns']
+
+    // console.log(`score ${score}` )
+    // console.log(`wrong ans ${wrongAnswers}`)
+    // console.log(`unattemptedQns ${unattemptedQns}`)
+    // console.log(`correct ans ${correctAns}`)
     // store the score
     // console.log(emailId)
+    // console.log(result)
+    
+    
     storeScore(emailId, score);
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
     // document.querySelector('#qn_ans_form').style.display = 'none';
@@ -166,20 +187,22 @@ function createSubmitTestModal() {
     document.querySelector('#submitTestModalId').style.display = 'block';
     document.querySelector('#numOfQnsSubmitTestModal').innerText = totalQuestions;
     document.querySelector('#correctAns').innerText = score;
-    document.querySelector('#wrongAns').innerText = totalQuestions - unattemptedQns - score;
+    document.querySelector('#wrongAns').innerText = wrongAnswers;
     document.querySelector('#unattemptedQns').innerText = unattemptedQns;
 }
 // store the ansewers clicked during the test
 function calculateScore() {
     // console.log(e)
 
+    // console.log(`total qns: ${totalQuestions}`)
     clearInterval(timerId)
 
     // to get the answers selected
-
+    result = {}
     score = 0;
     // calculate unattempted qns
     unattemptedQns = document.querySelectorAll('[data-clicked="false"]').length;
+    // console.log(`unattempted qns: ${unattemptedQns}`)
     // console.log(unattemptedQns)
     let allInputElements = document.getElementsByTagName('input');
     Object.keys(ansKey).forEach(qn => {
@@ -211,7 +234,12 @@ function calculateScore() {
             // }
         }
     })
-    return score;
+    correctAns = score;
+    result['score'] = score;
+    result['correctAns'] = correctAns;
+    result['wrongAnswers'] = totalQuestions - score - unattemptedQns;
+    result['unattemptedQns'] = unattemptedQns;
+    return result;
 
 }
 
