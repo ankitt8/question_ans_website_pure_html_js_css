@@ -1,10 +1,11 @@
 {
-  "name": "physics369",
+  "name": "mahawiki",
   "version": "1.0.0",
-  "description": "",
+  "description": "Test Series App for mahawiki 30 days html challenge",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Ankit Tiwari",
   "license": "ISC",
