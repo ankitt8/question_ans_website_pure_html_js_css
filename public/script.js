@@ -65,13 +65,44 @@ function validateEmail(userEmail) {
     return true;
 }
 function bindEvents() {
-   
+
     document.querySelector('#qn_ans_form').addEventListener('click', (e) => {
         console.log(e.target.parentElement.dataset)
         e.target.parentElement.dataset.clicked = true;
     })
+    // document.querySelector('#qn_ans_form').addEventListener('mousedown', () => {
+    //     console.log('mouse down clicked')
+    // })
+    // document.querySelector('#qn_ans_form').addEventListener('click', (e) => {
+    //     // e.preventDefault();
+    //     // console.log(e.target.checked)
+    //     // if (e.target.checked == true) {
+    //     //     console.log('already its checked')
+    //     //     clicked = false;
+    //     //     e.target.checked = false;
+    //     // } else {
+    //     //     clicked = true;
+    //     //     e.target.checked = true;
+    //     // }
+    //     // let clicked = true;
+    //     // if (e.target.checked != undefined) {
+    //     //     
+    //     // }
+    //     const tagName = e.target.tagName;
+    //     console.log(tagName)
+    //     if (tagName == 'LABEL') {
+    //         // console.log(e.target.parentElement)
+    //         e.target.parentElement.dataset.clicked = true;
+    //     } else if (tagName == 'INPUT') {
+    //         // console.log(e.target.parentElement)
+    //         // console.log(e.target.checked)
+    //         console.log(e)
+    //         e.target.parentElement.parentElement.dataset.clicked = true;
+    //     }
+    //     // e.target.parentElement.dataset.clicked = true;
+    // })
     const clickedEles = document.querySelectorAll(`[data-clicked]`);
-    console.log(clickedEles)
+    // console.log(clickedEles)
     document.querySelector('#startTestBtn').addEventListener('click', () => {
 
         // if the user has entered the correct email only then the test should start
@@ -91,11 +122,12 @@ function bindEvents() {
         showQuestions();
         createTimer(maxTimeInMinutes, formElement);
         formElement.onsubmit = handleFormSubmit;
-        
+
 
     });
     document.querySelector('#submitTestModalClose').addEventListener('click', () => {
         document.querySelector('#submitTestModalId').style.display = 'none';
+        // document.querySelector('#qn_ans_form').style.display = 'block';
     })
 }
 async function displayQuestions(testId = 'physics_12-08-2020.json') {
@@ -105,18 +137,18 @@ async function displayQuestions(testId = 'physics_12-08-2020.json') {
     qnAnswers = res['questions_and_answerkey'];
     totalQuestions = qnAnswers.length;
     data = res;
-   
-   
-   
+
+
+
     createStartTestModal();
-    
+
 
     formElement = document.getElementById('qn_ans_form');
     fragment = document.createDocumentFragment();
     bindEvents();
 
-    
-    
+
+
 }
 
 function createStartTestModal() {
@@ -128,7 +160,7 @@ function createStartTestModal() {
 }
 
 function handleFormSubmit(e) {
-   
+
     e.preventDefault();
 
     unattemptedQns = 0;
@@ -136,19 +168,21 @@ function handleFormSubmit(e) {
     // store the score
     // storeScore(userEmail, score);
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
+    // document.querySelector('#qn_ans_form').style.display = 'none';
     createSubmitTestModal();
+
 }
 function storeScore(userEmail, score) {
 
 }
 function createSubmitTestModal() {
-   
+
     document.querySelector('#submitTestModalId').style.display = 'block';
     document.querySelector('#numOfQnsSubmitTestModal').innerText = totalQuestions;
     document.querySelector('#correctAns').innerText = score;
-    document.querySelector('#wrongAns').innerText = totalQuestions - unattemptedQns- score;
+    document.querySelector('#wrongAns').innerText = totalQuestions - unattemptedQns - score;
     document.querySelector('#unattemptedQns').innerText = unattemptedQns;
-    
+
 
 }
 
@@ -156,21 +190,21 @@ function createSubmitTestModal() {
 // store the ansewers clicked during the test
 function calculateScore() {
     // console.log(e)
-    
+
     clearInterval(timerId)
-   
+
     // to get the answers selected
 
     score = 0;
     // calculate unattempted qns
-    unattemptedQns=document.querySelectorAll('[data-clicked="false"]').length;
-    console.log(unattemptedQns)
+    unattemptedQns = document.querySelectorAll('[data-clicked="false"]').length;
+    // console.log(unattemptedQns)
     let allInputElements = document.getElementsByTagName('input');
     Object.keys(ansKey).forEach(qn => {
         if (submittedAns[qn] == ansKey[qn]) {
             for (let i = 0; i < allInputElements.length; ++i) {
                 const inputEle = allInputElements[i];
-                
+
                 if (inputEle.name == qn) {
                     if (inputEle.value == submittedAns[qn]) {
                         inputEle.parentElement.classList.add('green')
@@ -243,5 +277,3 @@ function createTimer(maxTimeInMinutes, formElement) {
 }
 
 displayQuestions(testId = 'physics_12-08-2020.json');
-
-
