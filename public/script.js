@@ -93,11 +93,11 @@ function bindEvents() {
 
     document.querySelector('#qn_ans_form').addEventListener('click', (e) => {
         const tagClicked = e.target.tagName;
-        if(tagClicked == 'INPUT') {
+        if (tagClicked == 'INPUT') {
             e.target.parentElement.parentElement.dataset.clicked = true;
-        } 
-        
-        
+        }
+
+
     })
 
     document.querySelector('#startTestBtn').addEventListener('click', () => {
@@ -134,24 +134,13 @@ function createStartTestModal() {
 function handleFormSubmit(e) {
 
     e.preventDefault();
-    document.querySelector('#submitTestBtn').setAttribute('disabled', true)
-    // var score, wrongAnswers, unattemptedQns, correctAns;
-    // ({score, wrongAnswers, unattemptedQns, correctAns} = calculateScore());
-    result = calculateScore();
-    score = result['score'];
-    wrongAnswers = result['wrongAnswers']
-    unattemptedQns = result['unattemptedQns']
-    correctAns = result['correctAns']
-
-    // console.log(`score ${score}` )
+    document.querySelector('#submitTestBtn').setAttribute('disabled', true);
+    // result = calculateScore();
+    ({ score, wrongAnswers, unattemptedQns, correctAns } = calculateScore());
+    // console.log(`score ${score}`)
     // console.log(`wrong ans ${wrongAnswers}`)
     // console.log(`unattemptedQns ${unattemptedQns}`)
     // console.log(`correct ans ${correctAns}`)
-    // store the score
-    // console.log(emailId)
-    // console.log(result)
-    
-    
     storeScore(emailId, score);
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
     // document.querySelector('#qn_ans_form').style.display = 'none';
@@ -208,30 +197,30 @@ function calculateScore() {
     Object.keys(ansKey).forEach(qn => {
         if (submittedAns[qn] == ansKey[qn]) {
             // adding green color to right answer
-            // for (let i = 0; i < allInputElements.length; ++i) {
-            //     const inputEle = allInputElements[i];
-            //     if (inputEle.name == qn) {
-            //         if (inputEle.value == submittedAns[qn]) {
-            //             inputEle.parentElement.classList.add('green')
-            //         }
-            //     }
-            // }
+            for (let i = 0; i < allInputElements.length; ++i) {
+                const inputEle = allInputElements[i];
+                if (inputEle.name == qn) {
+                    if (inputEle.value == submittedAns[qn]) {
+                        inputEle.parentElement.classList.add('green')
+                    }
+                }
+            }
 
             score += 1;
         } else {
             // adding green and red color
-            // for (let i = 0; i < allInputElements.length; ++i) {
-            //     const inputEle = allInputElements[i];
-            //     if (inputEle.name == qn) {
-            //         if (inputEle.value == submittedAns[qn]) {
-            //             inputEle.parentElement.classList.add('red')
-            //         } else {
-            //             if (inputEle.value == ansKey[qn]) {
-            //                 inputEle.parentElement.classList.add('green')
-            //             }
-            //         }
-            //     }
-            // }
+            for (let i = 0; i < allInputElements.length; ++i) {
+                const inputEle = allInputElements[i];
+                if (inputEle.name == qn) {
+                    if (inputEle.value == submittedAns[qn]) {
+                        inputEle.parentElement.classList.add('red')
+                    } else {
+                        if (inputEle.value == ansKey[qn]) {
+                            inputEle.parentElement.classList.add('green')
+                        }
+                    }
+                }
+            }
         }
     })
     correctAns = score;
