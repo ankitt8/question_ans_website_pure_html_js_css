@@ -10,7 +10,8 @@ var subtitle;
 var unattemptedQns;
 var wrongAnswers;
 var correctAns;
-
+var timeTaken;
+var testId = '30_days_mahawiki_23_08_2020.json';
 // var qnAnswer
 document.querySelector('#submitTestModalId').style.display = 'none';
 
@@ -84,7 +85,7 @@ function showQuestions() {
     })
 }
 function validateEmail(emailId) {
-    const regex = /^[a-zA-Z0-9]+@gmail.com$/;
+    const regex = /.+@gmail.com$/;
     // console.log(regex.lastIndex);
     // console.log(regex.test(emailId));
     return regex.test(emailId);
@@ -111,6 +112,7 @@ function bindEvents() {
         document.querySelector('#startTestModalId').style.display = 'none';
         showQuestions();
         createTimer(maxTimeInMinutes, formElement);
+
         formElement.onsubmit = handleFormSubmit;
 
 
@@ -141,7 +143,8 @@ function handleFormSubmit(e) {
     // console.log(`wrong ans ${wrongAnswers}`)
     // console.log(`unattemptedQns ${unattemptedQns}`)
     // console.log(`correct ans ${correctAns}`)
-    storeScore(emailId, score);
+    // time taken is stored in seconds
+    storeScore(emailId, score, timeTaken, testId);
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
     // document.querySelector('#qn_ans_form').style.display = 'none';
     createSubmitTestModal();
@@ -166,18 +169,31 @@ async function postData(url = '/storeScore', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function storeScore(emailId, score) {
-    postData('/storeScore', { emailId: emailId, score: score })
+function storeScore(emailId, score, timeTaken, testId) {
+    postData('/storeScore', { emailId: emailId, score: score, timeTaken: timeTaken, testId: testId})
         .then(data => {
             // console.log(data); // JSON data parsed by `data.json()` call
         });
 }
 function createSubmitTestModal() {
+    console.log(emailId)
+    const rank = calculateRank(emailId);
     document.querySelector('#submitTestModalId').style.display = 'block';
     document.querySelector('#numOfQnsSubmitTestModal').innerText = totalQuestions;
     document.querySelector('#correctAns').innerText = score;
     document.querySelector('#wrongAns').innerText = wrongAnswers;
     document.querySelector('#unattemptedQns').innerText = unattemptedQns;
+}
+// get the users for a particular testId
+async function getUsers(testId) {
+    const users = await fetch('/getUsers');
+}
+function calculateRank(emailId) {
+    // get list of users with their score and timetaken 
+    // sort by score and if tie then sort by timetaken
+
+    
+    usersList = getUsers(testId)
 }
 // store the ansewers clicked during the test
 function calculateScore() {
@@ -233,6 +249,7 @@ function calculateScore() {
 }
 
 function createTimer(maxTimeInMinutes, formElement) {
+    timeTaken = 0;
     maxTimeInMinutes = parseInt(maxTimeInMinutes)
     var hoursRemaining, minutesRemaining, secondsRemaining;
     [hoursRemaining, minutesRemaining, secondsRemaining] = [0, maxTimeInMinutes % 60, 00]
@@ -248,7 +265,9 @@ function createTimer(maxTimeInMinutes, formElement) {
     var counterPEle = document.getElementById('counter');
     counterPEle.innerHTML = timeToDisplay;
     timerId = setInterval(() => {
+
         secondsRemaining -= 1;
+        timeTaken += 1;
         // console.log(minutesRemaining)
         if (secondsRemaining < 0) {
             secondsRemaining = 59;
@@ -274,6 +293,7 @@ function createTimer(maxTimeInMinutes, formElement) {
 
     }, 1000)
     // setTimeout(() => {clearInterval(timerId)}, maxTimeInMinutes*60*1000);
+
 }
 
-displayQuestions(testId = '30_days_mahawiki_23_08_2020.json');
+displayQuestions(testId);
