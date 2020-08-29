@@ -85,7 +85,7 @@ function showQuestions() {
     })
 }
 function validateEmail(emailId) {
-    const regex = /^[a-zA-Z0-9]+@gmail.com$/;
+    const regex = /.+@gmail.com$/;
     // console.log(regex.lastIndex);
     // console.log(regex.test(emailId));
     return regex.test(emailId);
