@@ -24,9 +24,9 @@ router.post('/storeScore', (req, res) => {
 
 router.get('/getUsers', (req, res) => {
     const query = User.find({}, (err, result) => {
-        console.log(result)
+        // console.log(result)
     });
-    console.log(query)
+    // console.log(query)
     return 
 })
 
