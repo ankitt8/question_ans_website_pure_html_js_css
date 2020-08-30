@@ -1,0 +1,36 @@
+{
+    "questions_and_answerkey": [
+        {
+            "qn_num": 1,
+            "qn_title": "Which attribute is used to link external stylesheets in link tag",
+            "options": {
+                "a": "src",
+                "b": "href",
+                "c": "rel",
+                "d": "none of the above"
+            },
+            "answer": "c"
+        },
+        {
+            "qn_num": 2,
+            "qn_title": "By default box-sizing has which value in css?",
+            "options": {
+                "a": "border-box",
+                "b": "content-box"
+            },
+            "answer": "b"
+        },
+        {
+            "qn_num": 3,
+            "qn_title": "If width of a div is 100px and margin is 10px what will be actual width of a box",
+            "options": {
+                "a": "120px",
+                "b": "80px",
+                "c": "100px"
+            },
+            "answer": "a"
+        }
+    ],
+    "timerInMinutes": "3",
+    "title": "30 Days of Web"
+}

@@ -11,7 +11,7 @@ var unattemptedQns;
 var wrongAnswers;
 var correctAns;
 var timeTaken;
-var testId = '30_days_mahawiki_30_08_2020_v1.json';
+var testId = '30_days_mahawiki_30_08_2020_v2.json';
 // var qnAnswer
 document.querySelector('#submitTestModalId').style.display = 'none';
 
