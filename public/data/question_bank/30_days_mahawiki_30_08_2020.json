@@ -1,0 +1,61 @@
+{
+    "questions_and_answerkey": [
+        {
+            "qn_num": 1,
+            "qn_title": "Is &lt!DOCTYPE&gt a HTML5 Tag?",
+            "options": {
+                "a": "Yes",
+                "b": "No",
+                "c": "Depends on browser version",
+                "d": "None of the above"
+            },
+            "answer": "b"
+        },
+        {
+            "qn_num": 2,
+            "qn_title": "If &lt!DOCTYPE&gt is missing from HTML Document which of the following new tags introduced in HTML5 are not supported?",
+            "options": {
+                "a": "&ltarticle&gt",
+                "b": "&ltfooter&gt",
+                "c": "&ltheader&gt ",
+                "d": "All of the above"
+            },
+            "answer": "d"
+        },
+        {
+            "qn_num": 3,
+            "qn_title": "Which of the following are non semantic elements?",
+            "options": {
+                "a": "&ltdiv&gt",
+                "b": "&ltaside&gt",
+                "c": "All of the above",
+                "d": "None of the above"
+            },
+            "answer": "a"
+        },
+        {
+            "qn_num": 4,
+            "qn_title": "Which is better HTML5 graphics?",
+            "options": {
+                "a": "Scalable Vector Graphics (SVG)",
+                "b": "Canvas.",
+                "c": "Depends on use case"
+            },
+            "answer": "c"
+        },
+        {
+            "qn_num": 5,
+            "qn_title": "Which are the new  Web Storage was introduced in HTML5",
+            "options": {
+                "a": "Session Storage",
+                "b": "Local Storage",
+                "c": "Cookies",
+                "d": "All of the above",
+                "e" : "Only a & b"
+            },
+            "answer": "e"
+        }
+    ],
+    "timerInMinutes": "5",
+    "title": "30 Days of Web"
+}
