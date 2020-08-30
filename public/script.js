@@ -11,7 +11,7 @@ var unattemptedQns;
 var wrongAnswers;
 var correctAns;
 var timeTaken;
-var testId = '30_days_mahawiki_30_08_2020.json';
+var testId = '30_days_mahawiki_30_08_2020_v1.json';
 // var qnAnswer
 document.querySelector('#submitTestModalId').style.display = 'none';
 
@@ -50,7 +50,7 @@ function showQuestions() {
 
         const labelsFragment = document.createDocumentFragment();
         for (const option of Object.keys(qnAnswer['options'])) {
-            
+
             const label = document.createElement('label');
             label.innerHTML = `<input type="radio" name=${qnAnswer['qn_num']} value=${option}> ${qnAnswer['options'][option]}`
             labelsFragment.appendChild(label);

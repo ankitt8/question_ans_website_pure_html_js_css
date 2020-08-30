@@ -1,0 +1,56 @@
+{
+    "questions_and_answerkey": [
+        {
+            "qn_num": 1,
+            "qn_title": "Block Elements are",
+            "options": {
+                "a": "Always starts on a new line and takes up the full width available",
+                "b": "Does not start on a new line and only takes up as much width as necessary.",
+                "c": "Are often used as a container for some text."
+                
+            },
+            "answer": "a"
+        },
+        {
+            "qn_num": 2,
+            "qn_title": "Is p tag a block level element?",
+            "options": {
+                "a": "yes",
+                "b": "no"
+            },
+            "answer": "a"
+        },
+        {
+            "qn_num": 3,
+            "qn_title": "Which is NOT a block element?",
+            "options": {
+                "a": "&ltbr&gt",
+                "b": "&ltdiv&gt",
+                "c": "&ltvideo&gt",
+                "d": "&ltblockquote&gt"
+            },
+            "answer": "a"
+        },
+        {
+            "qn_num": 4,
+            "qn_title": "Which attribute is used to open the link in new tab in anchor tag",
+            "options": {
+                "a": "target",
+                "b": "href",
+                "c": "openNewTab"
+            },
+            "answer": "a"
+        },
+        {
+            "qn_num": 5,
+            "qn_title": "What does iframe do?",
+            "options": {
+                "a": "creates a frame inside the same page",
+                "b": "embeds another html page into current"
+            },
+            "answer": "b"
+        }
+    ],
+    "timerInMinutes": "5",
+    "title": "30 Days of Web"
+}
