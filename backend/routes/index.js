@@ -4,10 +4,14 @@ const path = require('path')
 const User = require('../models/User')
 
 router.get('/', (req, res) => {
-    res.sendFile('index.html', { root: path.join(__dirname, '../..', 'public') }, (err) => console.log(err))
+    res.sendFile('display-tests.html', { root: path.join(__dirname, '../..', 'public') }, (err) => console.log(err))
     // res.sendFile('index.html')
 })
 
+router.get('/start-test', (req, res) => {
+    res.sendFile('test.html', { root: path.join(__dirname, '../..', 'public') }, (err) => console.log(err))
+    // res.sendFile('index.html')
+})
 router.post('/storeScore', (req, res) => {
 
     // console.log(req.body.emailId);

@@ -1,5 +1,5 @@
 :root {
-    --btnprimary: rgb(0, 225, 255);
+    --btnprimary: #00aff0;
     --btnSecondary: #4CAF50;
     --primaryText: #233246;
     --darkText: #313131;
@@ -9,6 +9,7 @@
     --highlighter: #ffa500;
     --correct: #7CFC00;
     --error: #ee3131;
+    
 }
 
 * {

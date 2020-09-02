@@ -1,0 +1,63 @@
+@import 'utilities.css';
+
+.test-archive {
+    padding: 5px;
+    margin: 20px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 30px;
+
+}
+.display-test-container {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
+.card {
+    /* border: 1px solid#b3b3b3; */
+    border-radius: 5px;
+    background-color: #fff;
+    /* padding: 20px 0; */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.card div{
+    font-size:18px;
+    display: flex;
+    padding:10px 20px;
+    align-items: center;
+}
+
+.card div span{
+    /* font-weight: 600; */
+    color:#000;
+    padding-right:15px;
+}
+/* .card div:nth-child(1){
+    background-color: var(--btnprimary);
+    opacity: 0.8;
+    flex-direction: column;
+    margin-bottom: 10px;
+} */
+.title {
+    background-color: var(--btnprimary);
+    opacity: 0.8;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.titleP{
+    color:#fff;
+    font-size: 20px;
+    padding:8px 0;
+    text-align: center;
+}
+.card div:nth-last-child(1) a button{
+    background-color:var(--btnSecondary);
+    opacity: 0.8;
+    color:#fff;
+}
