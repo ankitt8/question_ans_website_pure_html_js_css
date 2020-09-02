@@ -1,0 +1,28 @@
+{
+    "tests": [
+        {
+            "name": "HTML BASICS",
+            "totalQns": 5,
+            "timerInMinutes": "5",
+            "testId": "html_basics_23_08_2020"
+        },
+        {
+            "name": "HTML ADVANCED",
+            "totalQns": 5,
+            "timerInMinutes": "5",
+            "testId": "html_advanced_30_08_2020"
+        },
+        {
+            "name": "CSS BAISICS 1",
+            "totalQns": 5,
+            "timerInMinutes": "5",
+            "testId": "css_basics_v1_30_08_2020"
+        },
+        {
+            "name": "CSS BASICS 2",
+            "totalQns": 3,
+            "timerInMinutes": "3",
+            "testId": "css_basics_v2_30_08_2020"
+        }
+    ]
+}

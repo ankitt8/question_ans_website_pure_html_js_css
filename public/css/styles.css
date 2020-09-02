@@ -23,7 +23,19 @@
     padding: 5px 20px;
     font-weight: bold;
 }
-
+/* landing page display tests css */
+.title {
+    background-color: var(--btnprimary);
+    opacity: 0.8;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+.titleP{
+    
+    font-size: 20px;
+    padding:8px 0;
+    text-align: center;
+}
 /*Modal Window*/
 
 .modal {
@@ -40,6 +52,16 @@
     z-index: 1;
 }
 
+
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px 10px 20px 0;
+    border-bottom: 1px solid var(--lightborder);
+}
 .modal-content {
     margin: 80px auto;
     display: flex;

@@ -11,12 +11,12 @@ var unattemptedQns;
 var wrongAnswers;
 var correctAns;
 var timeTaken;
-var testId = '30_days_mahawiki_30_08_2020_v2.json';
+var testId;
 // var qnAnswer
 document.querySelector('#submitTestModalId').style.display = 'none';
 
 async function getQuestionBank(testId) {
-    let response = await fetch('./data/question_bank/' + testId);
+    let response = await fetch('./data/question_bank/' + testId + '.json');
     let data = await response.json();
     return data;
 }
@@ -295,5 +295,6 @@ function createTimer(maxTimeInMinutes, formElement) {
     // setTimeout(() => {clearInterval(timerId)}, maxTimeInMinutes*60*1000);
 
 }
-
+urlParams = new URLSearchParams(window.location.search);
+testId = urlParams.get('testId');
 displayQuestions(testId);
