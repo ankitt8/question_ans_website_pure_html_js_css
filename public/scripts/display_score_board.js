@@ -51,6 +51,7 @@ function createScoreBoard(users) {
         scoreBoard.appendChild(div);
         return;
     }
+    let fragment = document.createDocumentFragment();
     for(const user of users) {
         let div = document.createElement('div');
         div.classList.add('score-board__score');
@@ -63,11 +64,12 @@ function createScoreBoard(users) {
         score.innerText = user['score'];
         div.appendChild(score);
         // append div to scoreBoard
-        scoreBoard.appendChild(div);
+        fragment.appendChild(div);
         const hrEle = document.createElement('hr');
         hrEle.classList.add('score-board__hr')
-        scoreBoard.appendChild(hrEle);
+        fragment.appendChild(hrEle);
     }
+    scoreBoard.appendChild(fragment)
 }
 async function displayScoreBoard() {
     const users = await getUsersByTestId();
