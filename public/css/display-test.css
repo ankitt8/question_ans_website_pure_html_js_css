@@ -61,3 +61,11 @@
     opacity: 0.8;
     color:#fff;
 }
+
+
+/* score board button  */
+.score-board__btn {
+    background-color: var(--btnprimary);
+    opacity: 0.8;
+    color: #fff;
+}

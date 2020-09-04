@@ -177,7 +177,7 @@ input[type=submit]:hover {
     }
 }
 
-#errorMsg {
+.errorMsg {
     margin: 10px;
     
 }

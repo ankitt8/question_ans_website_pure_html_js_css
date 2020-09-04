@@ -12,6 +12,7 @@ var wrongAnswers;
 var correctAns;
 var timeTaken;
 var testId;
+var name;
 // var qnAnswer
 document.querySelector('#submitTestModalId').style.display = 'none';
 
@@ -90,6 +91,10 @@ function validateEmail(emailId) {
     // console.log(regex.test(emailId));
     return regex.test(emailId);
 }
+function validateName(name) {
+    const regex = /^[a-zA-Z\s]+/;
+    return regex.test(name);
+}
 function bindEvents() {
 
     document.querySelector('#qn_ans_form').addEventListener('click', (e) => {
@@ -103,10 +108,16 @@ function bindEvents() {
 
     document.querySelector('#startTestBtn').addEventListener('click', () => {
         emailId = document.querySelector('#email').value;
+        name = document.querySelector('#name').value;
         if (!validateEmail(emailId)) {
             // console.log(emailId);
-
-            document.querySelector('#errorMsg').innerText = "Please Enter Valid Email Id";
+            document.querySelector('#nameErrorMsg').innerText = "";
+            document.querySelector('#emailErrorMsg').innerText = "Please Enter Valid Email Id";
+            return;
+        }
+        if (!validateName(name)) {
+            document.querySelector('#emailErrorMsg').innerText = "";
+            document.querySelector('#nameErrorMsg').innerText = "Please Enter Valid Name";
             return;
         }
         document.querySelector('#startTestModalId').style.display = 'none';
@@ -144,7 +155,7 @@ function handleFormSubmit(e) {
     // console.log(`unattemptedQns ${unattemptedQns}`)
     // console.log(`correct ans ${correctAns}`)
     // time taken is stored in seconds
-    storeScore(emailId, score, timeTaken, testId);
+    storeScore(emailId, score, timeTaken, testId, name);
     document.getElementById('score').innerHTML = `Score <span class="score">${score}/${totalQuestions}</span>`;
     // document.querySelector('#qn_ans_form').style.display = 'none';
     createSubmitTestModal();
@@ -169,8 +180,8 @@ async function postData(url = '/storeScore', data = {}) {
     return response.json(); // parses JSON response into native JavaScript objects
 }
 
-function storeScore(emailId, score, timeTaken, testId) {
-    postData('/storeScore', { emailId: emailId, score: score, timeTaken: timeTaken, testId: testId})
+function storeScore(emailId, score, timeTaken, testId, name) {
+    postData('/storeScore', { emailId: emailId, score: score, timeTaken: timeTaken, testId: testId, name:name})
         .then(data => {
             // console.log(data); // JSON data parsed by `data.json()` call
         });
@@ -192,7 +203,7 @@ function calculateRank(emailId) {
     // get list of users with their score and timetaken 
     // sort by score and if tie then sort by timetaken
 
-    
+
     usersList = getUsers(testId)
 }
 // store the ansewers clicked during the test
