@@ -49,8 +49,17 @@ async function display_test_archive() {
         timerP.innerHTML = test['timerInMinutes'];
         timerP.classList.add('highlight');
         timerDiv.appendChild(timerP);
-
         cardDiv.appendChild(timerDiv);
+        // date when test was added
+        const dateDiv = document.createElement('div');
+        const dateSpan = document.createElement('span');
+        dateSpan.innerHTML = "Date&nbsp:";
+        dateDiv.appendChild(dateSpan);
+        const dateP = document.createElement('p');
+        dateP.innerHTML = test['date'];
+        dateP.classList.add('highlight');
+        dateDiv.appendChild(dateP);
+        cardDiv.appendChild(dateDiv);
         // Display score board
         const scoreBoardDiv = document.createElement('div');
         const scoreBoardLink = document.createElement('a');
