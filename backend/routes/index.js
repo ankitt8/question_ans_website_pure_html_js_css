@@ -12,6 +12,9 @@ router.get('/start-test', (req, res) => {
     res.sendFile('test.html', { root: path.join(__dirname, '../..', 'public') }, (err) => console.log(err))
     // res.sendFile('index.html')
 })
+router.get('/score-board', (req, res) => {
+    res.sendFile('score_board.html', { root: path.join(__dirname, '../..', 'public') }, (err) => console.log(err))
+})
 router.post('/storeScore', (req, res) => {
 
     // console.log(req.body.emailId);
@@ -25,13 +28,15 @@ router.post('/storeScore', (req, res) => {
             res.status(400).send('Something went wrong')
         })
 })
-
-router.get('/getUsers', (req, res) => {
-    const query = User.find({}, (err, result) => {
-        // console.log(result)
+router.post('/getUsersByTestId', (req, res) => {
+    const query = User.find({testId: req.body['testId']}, (err, result) => {
+        if (!err) {
+            return res.status(200).json(result);
+        }else {
+            return res.status(400).json({'status':'something went wrong'})
+        }
     });
     // console.log(query)
-    return 
+    
 })
-
 module.exports = router;

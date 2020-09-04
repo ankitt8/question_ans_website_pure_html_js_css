@@ -1,0 +1,36 @@
+.score-board {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.score-board__score {
+    justify-content: space-between;
+    padding: 10px;
+    margin: 2px;
+    display: flex;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+}
+
+.score-board__header {
+    font-size: 40px;
+    font-weight: 600;
+    background-color: var(--btnprimary);
+    border-radius: 5px;
+    border: none;
+    color:white;
+}
+
+.score-board__hr {
+    border: 1px solid gainsboro
+}
+
+.score-board__nousers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 21px;
+    
+}

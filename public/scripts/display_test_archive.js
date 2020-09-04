@@ -39,7 +39,7 @@ async function display_test_archive() {
         totalQnsDiv.appendChild(totalQnsP);
 
         cardDiv.appendChild(totalQnsDiv);
-        
+
         // Timer div 
         const timerDiv = document.createElement('div');
         const timerSpan = document.createElement('span');
@@ -51,7 +51,17 @@ async function display_test_archive() {
         timerDiv.appendChild(timerP);
 
         cardDiv.appendChild(timerDiv);
+        // Display score board
+        const scoreBoardDiv = document.createElement('div');
+        const scoreBoardLink = document.createElement('a');
+        scoreBoardLink.setAttribute('href', `/score-board?testId=${test['testId']}`);
+        const scoreBoardBtn = document.createElement('button');
+        scoreBoardBtn.classList.add('btn', 'score-board__btn');
+        scoreBoardBtn.innerHTML = "Score Board";
+        scoreBoardLink.appendChild(scoreBoardBtn);
+        scoreBoardDiv.appendChild(scoreBoardLink)
 
+        cardDiv.appendChild(scoreBoardDiv);
         // Start test Div
         const startTestDiv = document.createElement('div');
         const startTestLink = document.createElement('a');
