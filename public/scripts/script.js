@@ -92,7 +92,7 @@ function validateEmail(emailId) {
     return regex.test(emailId);
 }
 function validateName(name) {
-    const regex = /^[a-zA-Z\s]+/;
+    const regex = /^[a-zA-Z]+\s*[a-zA-Z]$/;
     return regex.test(name);
 }
 function bindEvents() {
@@ -187,7 +187,7 @@ function storeScore(emailId, score, timeTaken, testId, name) {
         });
 }
 function createSubmitTestModal() {
-    console.log(emailId)
+    // console.log(emailId)
     // const rank = calculateRank(emailId);
     document.querySelector('#submitTestModalId').style.display = 'block';
     document.querySelector('#numOfQnsSubmitTestModal').innerText = totalQuestions;

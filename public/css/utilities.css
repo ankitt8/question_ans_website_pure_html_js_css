@@ -73,10 +73,12 @@ input[type=text] {
     padding: 5px;
     margin: 5px;
     border-radius: 3px;
+    border: 1px solid;
 }
 
-input[type=text]::placeholder {
+::placeholder {
     text-align: center;
+    /* color:white; */
 }
 
 /* error message */
