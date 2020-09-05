@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/utilities.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/display-test.css">
+</head>
+
+<body>
+    <!-- <form enctype="multipart/form-data" id="assignment_form">
+    
+        <div id='input_div'></div>
+        <input type="file" id="file_input" name="filename" accept=".html">
+
+        <input type="submit">
+    </form> -->
+    <form action="/store-assignment" method="POST" enctype="multipart/form-data" id="assignment_form">
+
+        <div id='input_div'></div>
+        <input type="file" id="file_input" name="filename" accept=".html">
+
+        <input type="submit">
+    </form>
+    <script src="scripts/upload_assignment.js"></script>
+
+</body>
+
+</html>

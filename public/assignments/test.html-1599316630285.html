@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Series</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="timer">
+        <h1 id="score">
+
+        </h1>
+        <p id="counter">
+
+        </p>
+    </div>
+    <!-- <div class="title">
+        
+    </div> -->
+    <form id='qn_ans_form'></form>
+    <div id="startTestModalId" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <div class="close" id="startTestModalClose">&times;</div> -->
+                <h1><span class="highlight" id="startTestModalTitle"> </span>&nbsp;Test&nbsp;Series</h1>
+                <p>By : Ankit Tiwari</p>
+            </div>
+            <div class="modal-body">
+                <h1>Test Consists : <span class="highlight" id="numOfQnsStartTestModal"></span> Questions</h1>
+                <h1>Total Duration : <span class="highlight" id="duration"></span> Minutes</h1>
+                <!-- <input type="text" id= "emailInputBox" placeholder="Enter Your Email" autofocus> -->
+                <!-- <p id="emailError"></p> -->
+                <input type="text" id="email" placeholder="Enter Your Email" value="">
+                <div class="errorMsg" id="emailErrorMsg"></div>
+                <input type="text" id="name" placeholder="Enter Your Full Name" value="">
+                <div class="errorMsg" id="nameErrorMsg"></div>
+
+                <button class="btn startTestBtn" id='startTestBtn'>Start Test</button>
+            </div>
+
+            <div class="modal-footer">
+                <h1>!! Best Of Luck !!</h1>
+            </div>
+        </div>
+    </div>
+    <div id="submitTestModalId" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="close" id="submitTestModalClose">&times;</div>
+                <h1><span class="highlight" id="submitTestModalTitle"> </span>Test&nbsp;Series</h1>
+                <p>By : Ankit Tiwari</p>
+            </div>
+            <div class="modal-body">
+                <h1 id="score">
+
+                </h1>
+                <h1> Total Questions : <span class="highlight" id="numOfQnsSubmitTestModal"></span></h1>
+                <h1>Correct Answers : <span class="highlight" id="correctAns"></span></h1>
+                <h1>Wrong Answers : <span class="highlight" id="wrongAns"></span></h1>
+                <h1>UnAttempted Questions : <span class="highlight" id="unattemptedQns"></span></h1>
+                <!-- <button id="startTestBtn">Start Test</button> -->
+            </div>
+
+            <div class="modal-footer">
+                <h1>!! Thanks !!</h1>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./scripts/script.js"></script>
+
+
+</html>
