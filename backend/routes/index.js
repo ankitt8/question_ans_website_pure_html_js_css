@@ -69,7 +69,8 @@ router.get('/upload-assignment', (req, res) => {
 
 // console.log(name)
 router.post('/store-assignment', upload.single('filename'), (req, res) => {
-    return res.status(200).json({ 'status': 'file uploaded successfully' });
+    // return res.status(200).json({ 'status': 'file uploaded successfully' });
+    return res.redirect('/show-assignments');
 
 })
 
