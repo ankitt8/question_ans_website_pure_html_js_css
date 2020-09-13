@@ -92,7 +92,7 @@ function validateEmail(emailId) {
     return regex.test(emailId);
 }
 function validateName(name) {
-    const regex = /^[a-zA-Z]+\s*[a-zA-Z]$/;
+    var regex1 = /^[a-zA-Z]+(\s*[a-zA-Z]*)+$/;
     return regex.test(name);
 }
 function bindEvents() {
@@ -181,7 +181,7 @@ async function postData(url = '/storeScore', data = {}) {
 }
 
 function storeScore(emailId, score, timeTaken, testId, name) {
-    postData('/storeScore', { emailId: emailId, score: score, timeTaken: timeTaken, testId: testId, name:name})
+    postData('/storeScore', { emailId: emailId, score: score, timeTaken: timeTaken, testId: testId, name: name })
         .then(data => {
             // console.log(data); // JSON data parsed by `data.json()` call
         });
