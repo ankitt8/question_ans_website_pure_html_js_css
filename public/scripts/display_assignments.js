@@ -50,7 +50,7 @@ function createAssignmentBoard(assignments) {
 }
 async function displayAssignmentBoard() {
     const assignments = await getAssignments();
-    console.log(assignments)
+    // console.log(assignments)
     createAssignmentBoard(assignments);
 }
 displayAssignmentBoard();
