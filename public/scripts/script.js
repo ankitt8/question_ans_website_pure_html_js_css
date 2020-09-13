@@ -93,6 +93,7 @@ function validateEmail(emailId) {
 }
 function validateName(name) {
     var regex1 = /^[a-zA-Z]+(\s*[a-zA-Z]*)+$/;
+    // adhoc changes
     return regex.test(name);
 }
 function bindEvents() {
