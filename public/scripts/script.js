@@ -44,7 +44,7 @@ function showQuestions() {
         cardDiv.dataset.clicked = false;
         cardDiv.classList.add('card');
         const qnTitleTag = document.createElement('h2');
-        qnTitleTag.classList.add('qnTitle');
+        qnTitleTag.classList.add('qnTitle', 'noselect');
         qnTitleTag.innerHTML = `<strong>Q${qnAnswer['qn_num']})</strong> ${qnAnswer['qn_title']}`;
         // cardDivFragment.appendChild(cardDiv);
         cardDiv.appendChild(qnTitleTag);
