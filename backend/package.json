@@ -1,7 +1,7 @@
 {
-  "name": "mahawiki",
+  "name": "edtech-product",
   "version": "1.0.0",
-  "description": "Test Series App for mahawiki 30 days html challenge",
+  "description": "Test Series App",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
